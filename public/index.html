@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free multiplayer & battle royale flag typing/guessing game">
+  <meta name="keywords" content="flag, emote, guesser, typer, typing, online, multiplayer, battle royale, friends">
+  <meta property="og:title" content="FlagRacer - Multiplayer typing game!">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="FlagRacer.com is a free onlineflag typing game. Play Battle Royale, 1 vs 1, or practice your emote typing skills alone.">
+  <title>FlagRacer: Multiplayer & Battle Royale Flag Guessing Game</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dist/animate.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital@1&family=Open+Sans:wght@400;600&family=Roboto&family=Lato&family=Inter:wght@500;600&Lato:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="layout">
+    <!-- HEADER -->
+    <div class="header">
+      <ul>
+        <li id="nav-logo" class="flag-racer-sm">FlagRacer</li>
+        <li class="dropdown-btn"><i class="fas fa-bars"></i></li>
+      </ul>
+    </div>
+    <!-- NAV-ASIDE -->
+    <aside class="nav-aside" style="display: none;">
+      <ul>
+        <li><button class="battle-royale-btn"><img class="aside-icon aside-icon-1" src="imgs/crown.svg" alt=""><div>Battle Royale</div></button></li>
+        <li><button class="one-vs-one-btn"><img class="aside-icon aside-icon-2" src="imgs/1v1-swords.svg" alt=""><div>1 VS 1</div></button></li>
+        <li><button class="solo-btn"><img class="aside-icon aside-icon-3" src="imgs/solo.svg" alt=""><div>Practice Solo</div></button></li>
+        <li><button class="my-profile-btn"><img class="aside-icon aside-icon-4" src="imgs/user.svg" alt=""><div>My Profile</div></button></li>
+      </ul>
+      <div class="nav-aside-bottom">
+        <div class="toggle-dark-mode-box">
+          <input class="toggle__input" aria-label="toggle dark mode" type="checkbox">
+          <span class="toggle__fake"></span>
+          <div class="light-dark-label">Light</div>
+        </div>
+
+      </div>
+
+    </aside>
+    <!-- MAIN -->
+    <div class="main-container">
+      <!-- LOADING -->
+      <div class="loading-box" style="display: none;">
+        <div class="loading-small">Loading<div class="lds-dual-ring"></div></div>
+      </div>
+      <!-- MAIN CONTENT -->
+      <div class="main">
+      </div>
+      <!-- INFORMATION ASIDE -->
+      <aside class="info-aside-container" style="visibility: hidden;">
+        <div class="info-box-stats">
+          <div class="info-box-profile">
+            <div class="profile-img-box-aside">
+              <img class="profile-img-aside" src="">
+            </div>
+            <div class="yep-coins-container">
+              <div class="yep-coins-label">YEP COINS:</div>
+              <div class="yep-coins-box">
+                <span class="yep-coins">0</span><img class="yep-coin-logo-aside" src="imgs/YEP_COIN.svg">
+              </div>
+            </div>
+          </div>
+          <div class="info-box-box">
+            <div class="info-box-stats-label">STATS</div>
+            <div class="info-box-label">TOTAL</div>
+            <ul class="info-box-stats-list">
+              <li><div>WINS</div><div class="stats-number total-wins-num">0</div></li>
+              <li><div>GAMES PLAYED</div><div class="stats-number total-games-num">0</div></li>
+            </ul>
+            <div class="info-box-label">Battle Royale</div>
+            <ul class="info-box-stats-list">
+              <li><div>WINS</div><div class="stats-number br-wins-num">0</div></li>
+              <li><div>WIN STREAK</div><div class="stats-number br-streak-num">0</div></li>
+              <li><div>GAMES PLAYED</div><div class="stats-number br-games-num">0</div></li>
+            </ul>
+            <div class="info-box-label">1 VS 1</div>
+            <ul class="info-box-stats-list">
+              <li><div>WINS</div><div class="stats-number one-wins-num">0</div></li>
+              <li><div>WIN STREAK</div><div class="stats-number one-streak-num">0</div></li>
+              <li><div>GAMES PLAYED</div><div class="stats-number one-games-num">0</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="about-box">
+            <div class="info-box-label">About</div>
+            <p>A flag guessing and racing game.</p>
+          </div>
+          <div class="note-label">NOTE: Progress can be lost when clearing <a href="browsing-data.html" target="_blank">browsing data.</a></div>
+        </div>
+      </aside>
+    </div>
+    <img class="admin-message" src=""></img>
+      <!-- GAME -->
+      <div class="game">
+      </div>
+      <!-- BATTLE-ROYALE-ASIDE -->
+      <aside class="battle-royale-aside" style="display: none;">
+        <div class="players-remaining-aside"><div class="players-remaining-label">PLAYERS REMAINING</div><div id="players-remaining"></div></div>
+        <ul class="player-aside-container">
+        </ul>
+        <ul class="player-aside-eliminated-container">
+        </ul>
+      </aside>
+    <!-- EXTRAS -->
+    <div class="room-is-full-label">ROOM IS FULL!</div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/1.5.0/jquery.waitforimages.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+
+  <script src="/js/worker.js"></script>
+
+  <script src="/js/dist/emotes.js"></script>
+  <script src="/js/dist/cosmetics.js"></script>
+  <script src="/js/dist/localStorage.js"></script>
+  <script src="/js/dist/admin.js"></script>
+
+  <script src="/js/Components.js"></script>
+  <script src="/js/BattleRoyale.js"></script>
+  <script src="/js/BattleRoyaleLobby.js"></script>
+  <script src="/js/RacerGameBattle.js"></script>
+  <script src="/js/OriginalGame.js"></script>
+  <script src="/js/RacerGame.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

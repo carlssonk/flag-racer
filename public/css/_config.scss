@@ -1,0 +1,72 @@
+$font-stack: Arial, Helvetica, sans-serif;
+// $light-color: #dbdbdb;
+$dark-color: rgb(45, 45, 45);
+$secondary-dark-color: rgb(55, 55, 55);
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+$highlight-color: rgb(0, 195, 255);
+
+$aside: #1f1e23;
+$header: #18171c;
+$main: #232329;
+
+$properties-width: 350px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// --background: rgb(225, 227, 235);
+
+.light {
+  // transition: 1s;
+  --background: rgb(215, 220, 230);
+  --card-box: rgb(250, 250, 250);
+  --card-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  --card-border: #c8c8c8;
+  --profile-circle: #dddddd;
+  --soft-border: rgba(0, 0, 0, 0.5);
+  --text: rgb(0, 0, 0);
+  --text-soft: #414141;
+  --text-soft-dark: #2e2e2e;
+  --buttons-text: #464646;
+  --selected-btn: #b9b9b9;
+  --icon: #555;
+  --scroll-track: rgb(215, 220, 230);
+  --scroll-thumb: #a1a0a0;
+  --scroll-thumb-hover: #7a7a7a;
+  --game-box-right: #394f92;
+  --twitter: #51a2e0;
+  --play-icon:rgba(16, 37, 65, 0.9);
+  --loading: black;
+}
+
+.dark {
+  // transition: 1s;
+  --background: rgb(10, 10, 10);
+  --card-box: #131316;
+  --card-shadow: 0 0 10px rgb(0, 0, 0);
+  --card-border: rgba(50, 50, 50, 0.2);
+  --profile-circle: #292933;
+  --soft-border: rgba(255, 255, 255, 0.5);
+  --text: white;
+  --text-soft: #d3d3d3;
+  --text-soft-dark: #e2e2e2;
+  --buttons-text: #eeeeee;
+  --selected-btn: #414141;
+  --icon: #555;
+  --scroll-track: rgb(0, 0, 0);
+  --scroll-thumb: #1f2027;
+  --scroll-thumb-hover: #1c1d25;
+  --game-box-right: #294c69;
+  --twitter: #4387bb;
+  --play-icon:rgba(83, 179, 211, 0.9);
+  --loading: white;
+}
+
+body {
+  transition: 100ms;
+  background-color: var(--background)
+}
