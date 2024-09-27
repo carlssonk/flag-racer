@@ -2151,7 +2151,7 @@ body {
 }
 
 .original-game .game-upper-content-container .emote-img-container img {
-  max-width: 200px;
+  max-width: 250px;
   max-height: 200px;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
